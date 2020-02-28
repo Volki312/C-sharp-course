@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DED2DFAF-3DD7-4C34-B188-FFDC74AC7777}</ProjectGuid>
+    <ProjectGuid>{1EF55D54-C358-4E4C-B2BA-576482412628}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Josip_Volarevic__Vjezba_01</RootNamespace>
-    <AssemblyName>Josip-Volarevic_ Vjezba_01</AssemblyName>
+    <RootNamespace>zad3</RootNamespace>
+    <AssemblyName>zad3</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
