@@ -15,7 +15,12 @@ namespace Labs
 			ALL_ELEMENTS=new ArrayList();
 		}
 
-		public static double getNewXPos()
+        public void addNewShape(Shape shape)
+        {
+            ALL_ELEMENTS.Add(shape);
+        }
+
+        public static double getNewXPos()
 		{
 			if(ALL_ELEMENTS.Count==0)
 			{

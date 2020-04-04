@@ -21,14 +21,16 @@ namespace Labs
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 
-		public Lab2AppForm()
+        private DataModel dm { get; set; }
+
+        public Lab2AppForm()
 		{
 			//
 			// Required for Windows Form Designer support
 			//
 			
+			dm = new DataModel();
 			InitializeComponent();
-			DataModel dm = new DataModel();
 						
 
 			//
@@ -58,62 +60,61 @@ namespace Labs
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.button1 = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.listBox1 = new System.Windows.Forms.ListBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.SuspendLayout();
-			// 
-			// button1
-			// 
-			this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(112, 304);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Insert new shape";
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// label1
-			// 
-			this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label1.Location = new System.Drawing.Point(112, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(464, 24);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "List of all inserted elements:";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			// 
-			// listBox1
-			// 
-			this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listBox1.ItemHeight = 16;
-			this.listBox1.Location = new System.Drawing.Point(112, 24);
-			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(464, 276);
-			this.listBox1.TabIndex = 2;
-			// 
-			// label2
-			// 
-			this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.label2.Location = new System.Drawing.Point(112, 272);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(464, 32);
-			this.label2.TabIndex = 3;
-			this.label2.Text = "Total area=0, Total perimeter=0";
-			// 
-			// Lab2AppForm
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
-			this.ClientSize = new System.Drawing.Size(576, 304);
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.label2,
-																		  this.listBox1,
-																		  this.label1,
-																		  this.button1});
-			this.Name = "Lab2AppForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Lab2";
-			this.ResumeLayout(false);
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 304);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Insert new shape";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(93, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(483, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "List of all inserted elements:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.Location = new System.Drawing.Point(93, 21);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(483, 283);
+            this.listBox1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label2.Location = new System.Drawing.Point(93, 277);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(483, 27);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Total area=0, Total perimeter=0";
+            // 
+            // Lab2AppForm
+            // 
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.ClientSize = new System.Drawing.Size(576, 304);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
+            this.Name = "Lab2AppForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Lab2";
+            this.ResumeLayout(false);
 
 		}
 		#endregion
@@ -134,12 +135,25 @@ namespace Labs
 
 			if (asf.DialogResult == DialogResult.OK)
 			{
-				//to do
-				asf.Dispose();
-			}
+                double baseShapeValue = asf.getTextBoxInput();
+                int shapeType = asf.getSelectedType();
+
+                asf.Dispose();
+
+                Shape myShape;
+
+                if (shapeType == 0) myShape = new Circle(baseShapeValue);
+                else if (shapeType == 1)  myShape = new Square(baseShapeValue);
+                else if (shapeType == 2) myShape = new Triangle(baseShapeValue);
+                else myShape = new Circle(baseShapeValue);
+
+                dm.addNewShape(myShape);
+                listBox1.Items.Add(myShape.ToString());
+
+                label2.Text = $"Total area={DataModel.getTotalArea()}, Total perimeter={DataModel.getTotalPerimeter()}";
+            }
 
 		}
-		
 
-	}
+    }
 }
