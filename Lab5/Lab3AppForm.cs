@@ -22,12 +22,9 @@ namespace Labs
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TreeView treeView1;
 		private System.Windows.Forms.ContextMenu contextMenu1;
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+        private IContainer components;
 
-		public Lab3AppForm()
+        public Lab3AppForm()
 		{
 			//
 			// Required for Windows Form Designer support
@@ -62,104 +59,115 @@ namespace Labs
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.mainMenu1 = new System.Windows.Forms.MainMenu();
-			this.menuItem5 = new System.Windows.Forms.MenuItem();
-			this.menuItem6 = new System.Windows.Forms.MenuItem();
-			this.menuItem1 = new System.Windows.Forms.MenuItem();
-			this.menuItem2 = new System.Windows.Forms.MenuItem();
-			this.menuItem3 = new System.Windows.Forms.MenuItem();
-			this.menuItem4 = new System.Windows.Forms.MenuItem();
-			this.label1 = new System.Windows.Forms.Label();
-			this.treeView1 = new System.Windows.Forms.TreeView();
-			this.contextMenu1 = new System.Windows.Forms.ContextMenu();
-			this.SuspendLayout();
-			// 
-			// mainMenu1
-			// 
-			this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					  this.menuItem5,
-																					  this.menuItem1});
-			// 
-			// menuItem5
-			// 
-			this.menuItem5.Index = 0;
-			this.menuItem5.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					  this.menuItem6});
-			this.menuItem5.Text = "File";
-			// 
-			// menuItem6
-			// 
-			this.menuItem6.Index = 0;
-			this.menuItem6.Text = "Exit";
-			this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
-			// 
-			// menuItem1
-			// 
-			this.menuItem1.Index = 1;
-			this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					  this.menuItem2,
-																					  this.menuItem3,
-																					  this.menuItem4});
-			this.menuItem1.Text = "Insert";
-			// 
-			// menuItem2
-			// 
-			this.menuItem2.Index = 0;
-			this.menuItem2.Text = "Circle";
-			
-			// 
-			// menuItem3
-			// 
-			this.menuItem3.Index = 1;
-			this.menuItem3.Text = "Square";
-			
-			// 
-			// menuItem4
-			// 
-			this.menuItem4.Index = 2;
-			this.menuItem4.Text = "Triangle";
-			
-			// 
-			// label1
-			// 
-			this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.label1.Location = new System.Drawing.Point(0, 247);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(480, 24);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Total area=0, Total perimeter=0";
-			// 
-			// treeView1
-			// 
-			this.treeView1.ContextMenu = this.contextMenu1;
-			this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.treeView1.ImageIndex = -1;
-			this.treeView1.Name = "treeView1";
-			this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-																				  new System.Windows.Forms.TreeNode("Shape", new System.Windows.Forms.TreeNode[] {
-																																									 new System.Windows.Forms.TreeNode("Circle"),
-																																									 new System.Windows.Forms.TreeNode("Square"),
-																																									 new System.Windows.Forms.TreeNode("Triangle")})});
-			this.treeView1.SelectedImageIndex = -1;
-			this.treeView1.Size = new System.Drawing.Size(480, 247);
-			this.treeView1.TabIndex = 1;
-			// 
-			// contextMenu1
-			// 
-			this.contextMenu1.Popup += new System.EventHandler(this.contextMenu1_Popup);
-			// 
-			// Lab3AppForm
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
-			this.ClientSize = new System.Drawing.Size(480, 271);
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.treeView1,
-																		  this.label1});
-			this.Menu = this.mainMenu1;
-			this.Name = "Lab3AppForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Lab3";
-			this.ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Circle");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Square");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Triangle");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Shape", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.menuItem6 = new System.Windows.Forms.MenuItem();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.contextMenu1 = new System.Windows.Forms.ContextMenu();
+            this.SuspendLayout();
+            // 
+            // mainMenu1
+            // 
+            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem5,
+            this.menuItem1});
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 0;
+            this.menuItem5.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem6});
+            this.menuItem5.Text = "File";
+            // 
+            // menuItem6
+            // 
+            this.menuItem6.Index = 0;
+            this.menuItem6.Text = "Exit";
+            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 1;
+            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem2,
+            this.menuItem3,
+            this.menuItem4});
+            this.menuItem1.Text = "Insert";
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 0;
+            this.menuItem2.Text = "Circle";
+            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Index = 1;
+            this.menuItem3.Text = "Square";
+            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
+            // 
+            // menuItem4
+            // 
+            this.menuItem4.Index = 2;
+            this.menuItem4.Text = "Triangle";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Location = new System.Drawing.Point(0, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(480, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Total area=0, Total perimeter=0";
+            // 
+            // treeView1
+            // 
+            this.treeView1.ContextMenu = this.contextMenu1;
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "";
+            treeNode1.Text = "Circle";
+            treeNode2.Name = "";
+            treeNode2.Text = "Square";
+            treeNode3.Name = "";
+            treeNode3.Text = "Triangle";
+            treeNode4.Name = "";
+            treeNode4.Text = "Shape";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode4});
+            this.treeView1.Size = new System.Drawing.Size(480, 250);
+            this.treeView1.TabIndex = 1;
+            // 
+            // contextMenu1
+            // 
+            this.contextMenu1.Popup += new System.EventHandler(this.contextMenu1_Popup);
+            // 
+            // Lab3AppForm
+            // 
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.ClientSize = new System.Drawing.Size(480, 271);
+            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.label1);
+            this.Menu = this.mainMenu1;
+            this.Name = "Lab3AppForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Lab3";
+            this.ResumeLayout(false);
 
 		}
 		#endregion
@@ -249,13 +257,49 @@ namespace Labs
 
 		private void insertSquare_Click(object sender, System.EventArgs e)
 		{
-			//to do
-		}
+            AddShapeForm asf = new AddShapeForm(2);
+            asf.ShowDialog(this);
+
+            if (asf.DialogResult == DialogResult.OK)
+            {
+                if (asf.getSelectedType() == 2)
+                {
+                    Square square = new Square(asf.getTextBoxInput());
+                    DataModel.getAllElementsList().Add(square);
+                    TreeNode tn = new TreeNode();
+                    tn.Text = square.ToString();
+                    tn.Tag = square;
+                    treeView1.Nodes[0].Nodes[1].Nodes.Add(tn);
+
+                }
+
+                label1.Text = "Total area=" + DataModel.getTotalArea() + ", Total perimeter=" + DataModel.getTotalPerimeter();
+                asf.Dispose();
+            }
+        }
 
 		private void insertTriangle_Click(object sender, System.EventArgs e)
 		{
-			//to do			
-		}
+            AddShapeForm asf = new AddShapeForm(3);
+            asf.ShowDialog(this);
+
+            if (asf.DialogResult == DialogResult.OK)
+            {
+                if (asf.getSelectedType() == 3)
+                {
+                    Triangle triangle = new Triangle(asf.getTextBoxInput());
+                    DataModel.getAllElementsList().Add(triangle);
+                    TreeNode tn = new TreeNode();
+                    tn.Text = triangle.ToString();
+                    tn.Tag = triangle;
+                    treeView1.Nodes[0].Nodes[2].Nodes.Add(tn);
+
+                }
+
+                label1.Text = "Total area=" + DataModel.getTotalArea() + ", Total perimeter=" + DataModel.getTotalPerimeter();
+                asf.Dispose();
+            }
+        }
 
 		private void showCircleData_Click(object sender, System.EventArgs e)
 		{			
@@ -276,19 +320,56 @@ namespace Labs
 
 		private void showSquareData_Click(object sender, System.EventArgs e)
 		{
-			//to do			
-		}
+            TreeNode tn = treeView1.SelectedNode;
+            Square square = (Square)tn.Tag;
+            string message = "";
+            message += "Side=" + square.getSide();
+            message += "\nX pos=" + square.getXPos();
+            message += "\nY pos=" + square.getYPos();
 
-		private void showTriangleData_Click(object sender, System.EventArgs e)
+            string caption = "Square properties";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+
+            MessageBox.Show(this, message, caption, buttons,
+                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+        }
+
+        private void showTriangleData_Click(object sender, System.EventArgs e)
 		{
-			//to do
-		}
+            TreeNode tn = treeView1.SelectedNode;
+            Triangle triangle = (Triangle)tn.Tag;
+            string message = "";
+            message += "Side=" + triangle.getSide();
+            message += "\nX pos=" + triangle.getXPos();
+            message += "\nY pos=" + triangle.getYPos();
 
-		private void menuItem6_Click(object sender, System.EventArgs e)
+            string caption = "Triangle properties";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+
+            MessageBox.Show(this, message, caption, buttons,
+                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+        }
+
+        private void menuItem6_Click(object sender, System.EventArgs e)
 		{
 			Application.Exit();
-		}	
+		}
 
-		
-	}
+        private void menuItem2_Click(object sender, EventArgs e)
+        {
+            insertCircle_Click(sender, e);
+        }
+
+        private void menuItem3_Click(object sender, EventArgs e)
+        {
+            insertSquare_Click(sender, e);
+        }
+
+        private void menuItem4_Click(object sender, EventArgs e)
+        {
+            insertTriangle_Click(sender, e);
+        }
+    }
 }
