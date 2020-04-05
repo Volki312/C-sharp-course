@@ -218,19 +218,21 @@ namespace Labs
                     label3.Text = "";
                     okButton.Enabled = true;
                 }
-                else label3.Text = "The number must be greater than zero!";
+                else
+                {
+                    label3.Text = "The number must be greater than zero!";
+                    okButton.Enabled = false;
+                } 
             } 
             catch
             {
-                label2.Text = "Enter a valid NUMBER value for " + label1.Text.ToLower().TrimEnd(':');
+                if (string.IsNullOrWhiteSpace(textBox1.Text)) label2.Text = "";
+                else label2.Text = "Enter a valid NUMBER value for " + label1.Text.ToLower().TrimEnd(':');
+                
                 label3.Text = "";
+                okButton.Enabled = false;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                label2.Text = "";
-                label3.Text = "";
-            }
         }
 
         public int getSelectedType()
